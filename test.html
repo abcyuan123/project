@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>显示与隐藏</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            font: 30px/200px 'Arial';
+            color: red;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+    </style>
+    <style>
+        /*display
+        值为none时，盒子会被隐藏，且不在页面中占位
+        */
+        .box2 {
+            display: none;
+            transition: 1s;
+        }
+        .box1:hover ~ .box2 {
+            display: block;
+        }
+        .box2:hover {
+            display: block;
+        }
+    </style>
+    <style>
+        /*opacity
+        值为0~1，控制盒子的透明度，但是消失后，在页面中占位
+        */
+        .box4 {
+            /*背景颜色不能操作文本*/
+            /*background-color: rgba(0,0,0,0);*/
+            opacity: 0;
+            /*过度效果*/
+            transition: 1s;
+        }
+        .box3:hover ~ .box4 {
+            opacity: 1;
+        }
+        .box4:hover {
+            opacity: 1;
+        }
+    </style>
+
+    <style>
+        .box6 {
+            width: 0;
+            height: 0;
+            /*超出content以外的内容如何处理：hidden隐藏*/
+            overflow: hidden;
+            transition: 1s 0s ease;
+            /*过渡得我属性个数可以自定义*/
+            /*transition-property: width, background-color, height;*/
+            transition-property: all;
+        }
+        .box5:hover ~ .box6 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box6:hover {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">1</div>
+<div class="box2">2</div>
+<div class="box3">3</div>
+<div class="box4">4</div>
+<div class="box5">5</div>
+<div class="box6">6</div>
+<div class="box7">7</div>
+<div class="box8">8</div>
+</body>
+</html>
